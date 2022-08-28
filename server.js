@@ -27,7 +27,7 @@ app.get('/login', async function (req, res) {
 });
 
 app.get('/cadastrar', async function (req, res) {
-    res.sendFile(__dirname + 'src/cadastro.html')
+    res.sendFile(__dirname + '/src/cadastro.html')
 });
 
 app.get('/dashboard', async function (req, res) {
