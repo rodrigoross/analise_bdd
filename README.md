@@ -42,7 +42,9 @@ Se tudo estiver certo rode os testes usando o comando:
 ```
 npm run test
 ```
-## Executar Cypress
+## Executar testes via GUI
+
+Caso queira executar e visualizar automação dos testes via GUI do Cypress deve executar o seguinte comando
 
 ```
 npm run open
