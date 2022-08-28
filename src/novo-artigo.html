@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Artigo</title>
+</head>
+
+<body>
+    <h1>Novo artigo</h1>
+    <form action="http://localhost:8088/api/artigo/novo" method="post">
+        <div>
+            <label for="titulo">Titulo</label>
+            <input type="text" name="titulo" id="titulo">
+        </div>
+        <div>
+            <label for="corpo">Corpo</label>
+            <textarea name="corpo" id="corpo" cols="30" rows="10"></textarea>
+        </div>
+
+        <button type="submit" id="btn-criar">
+            Criar
+        </button>
+    </form>
+</body>
+
+</html>

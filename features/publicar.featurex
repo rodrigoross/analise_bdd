@@ -1,0 +1,26 @@
+#language: pt
+
+Funcionalidade: Publicar novo artigo
+    A fim de publicar nova artigo
+    Como usuário autenticado
+    Eu quero publicar meu artigo na plataforma
+
+Cenário: Usuário deseja publicar novo artigo
+    Dado usuário autenticado
+    E na tela de dashboard
+    Quando clicar no botão "Novo artigo"
+    Então usuário deve ser redirecionado para tela de publicação.
+
+Cenário: Usuário publica novo artigo
+    Dado usuário autenticado
+    E na tela de publicação
+    E informou o titulo e corpo do artigo
+    Quando clicar em publicar
+    Então deve visualizar mensagem "Artigo publicado com sucesso"
+
+Cenário: Usuário não informou algum campo do artigo deve visualizar mensagem de erro.
+    Dado usuário autenticado
+    E na tela de publicação
+    Mas não informou titulo ou corpo do artigo
+    Quando clicar em publicar
+    Então deve visualizar mensagem de erro informando os dados faltantes.

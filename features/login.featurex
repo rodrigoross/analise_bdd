@@ -1,0 +1,26 @@
+#language: pt
+
+Funcionalidade: Realizar login na plataforma
+    A fim de realizar o acesso a plataforma
+    Como usuário não autenticado
+    Eu quero realizar acesso ao sistema
+
+Cenário: Usuário deve acessar tela de login
+    Dado usuário não autenticado
+    E na tela de Home
+    Quando clicar no botão de login
+    Então deve ser redirecionado para tela de login
+
+Cenário: Usuário deve ser redirecionadopara dashboard ao realizar autenticação
+    Dado usuário na tela de login
+    E informou e-mail e senha
+    E dados são válidos
+    Quando clicar no botão de login
+    Então usuário deve ser autenticado
+    E redirecionado para tela de dashboard
+
+Cenário: Usuário informou dados incorretos deve visualizar mensagem de erro
+    Dado usuário na tela de login
+    E informou e-mail e senha incorretos
+    Quando clicar no botão de login
+    Então deve visualizar mensagem de erro de login

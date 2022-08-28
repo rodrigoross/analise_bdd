@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>Cadastrar-se</title>
+</head>
+
+<body>
+    <h1>Dados</h1>
+    <form action="http://localhost:8088/api/cadastrar" method="post">
+        <div>
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha">
+        </div>
+
+        <button type="submit" id="btn-cadastro">
+            Cadastrar
+        </button>
+    </form>
+</body>
+
+</html>

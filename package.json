@@ -1,0 +1,28 @@
+{
+  "name": "analise_bdd",
+  "version": "1.0.0",
+  "description": "Tarefa para implementar BDD com cypress ou selenium",
+  "main": "index.js",
+  "scripts": {
+    "start": "node init.js",
+    "test": ".\\node_modules\\.bin\\cypress run",
+    "open": ".\\node_modules\\.bin\\cypress open"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integrations"
+  },
+  "keywords": [
+    "bdd",
+    "cypress"
+  ],
+  "author": "Rodrigo de Sousa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cypress": "^10.6.0"
+  }
+}
