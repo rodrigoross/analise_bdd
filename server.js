@@ -53,17 +53,18 @@ app.post('/api/login', async function (req, res) {
     res.send({ mensagem: "Credenciais inválidas" })
 });
 
-app.post('/api/cadastrar', async function (req, res) {
+app.post('/api/cadastrar', (req, res) => {
     console.log('novo cadastro', req.body);
+
     const email = req.body.email
     const senha = req.body.senha
+    const confirme = req.body.confirme
 
-    if (email == "") return res.send({ mensagem: "E-mail é obrigatório" })
-    if (!isEmailValido(email)) return res.send({ mensagem: "email inválido, favor tentar novamente" })
-    if (isEmailJaExiste(email)) return res.send({ mensagem: "email já cadastrado" })
+    if (email == "") res.status(412).json({ mensagem: "E-mail é obrigatório" })
+    if (senha !== confirme) res.status(412).json({ mensagem: "Senhas informadas são divergentes" })
 
     users.push({ email, senha })
-    res.send({ mensagem: "Cadastro feito com sucesso" })
+    res.json({ mensagem: "Cadastro realizado com sucesso" })
 });
 
 app.post('/api/artigo/novo', async function (req, res) {
