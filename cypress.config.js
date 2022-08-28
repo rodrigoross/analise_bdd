@@ -3,6 +3,7 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 
 module.exports = defineConfig({
   e2e: {
+    baseUrl: "http://localhost:8088",
     setupNodeEvents(on, config) {
       let httpServer
       on('file:preprocessor', cucumber())
