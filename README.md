@@ -19,21 +19,18 @@ Clone o repositório localmente e entre no repositório.
 
 ```
 https://github.com/rodrigoross/analise_bdd.git & cd analise_bdd
-
 ```
 
 Após isso faça a instalação das dependências do Projeto.
 
 ```
 npm install
-
 ```
 
 Para inciar o servidor local execute o comando.
 
 ```
 npm run start
-
 ```
 
 E a plataforma estará disponível no endereço localhost:8088
@@ -44,11 +41,9 @@ Se tudo estiver certo rode os testes usando o comando:
 
 ```
 npm run test
-
 ```
 ## Executar Cypress
 
 ```
 npm run open
-
 ```
