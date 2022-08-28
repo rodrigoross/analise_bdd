@@ -6,11 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=800, initial-scale=1.0">
     <title>Cadastrar-se</title>
+
+    <style>
+        #retorno {
+            margin: 5px;
+        }
+
+        #retorno.sucesso {
+            background-color: greenyellow;
+            color: green;
+            font-weight: bold;
+            text-align: left;
+            padding: 5px 10px;
+        }
+
+        #retorno.erro {
+            background-color: rgb(255, 185, 185);
+            color: red;
+            font-weight: bold;
+            text-align: left;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Dados</h1>
-    <form action="http://localhost:8088/api/cadastrar" method="post">
+    <div id="retorno"></div>
+    <form action="http://localhost:8088/api/cadastrar" method="post" id="form-cadastro">
         <div>
             <label for="email">E-mail</label>
             <input type="text" name="email" id="email">
@@ -19,11 +42,54 @@
             <label for="senha">Senha</label>
             <input type="password" name="senha" id="senha">
         </div>
+        <div>
+            <label for="senha">Confirme a senha</label>
+            <input type="password" name="senha" id="confirma-senha">
+        </div>
 
-        <button type="submit" id="btn-cadastro">
+        <button type="submit" id="btn-cadastro" onclick="submitCadastro">
             Cadastrar
         </button>
     </form>
+    <script>
+        let form = document.getElementById("form-cadastro")
+        form.addEventListener('submit', submitCadastro);
+
+        async function submitCadastro(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
+            let confirme = document.getElementById("confirma-senha").value;
+
+            // let formData = JSON.parse({ email, senha, confirme })
+
+            let response = await fetch('/api/cadastrar',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email,
+                        senha,
+                        confirme
+                    })
+                });
+
+            elemento = document.getElementById('retorno');
+            let { mensagem } = await response.json();
+
+            if (response.status === 412) {
+                elemento.classList.add('erro');
+            } else {
+                elemento.classList.add('sucesso');
+            }
+
+            elemento.innerHTML = mensagem
+        }
+    </script>
 </body>
 
 </html>
